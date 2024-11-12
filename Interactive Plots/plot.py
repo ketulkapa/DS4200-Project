@@ -21,24 +21,12 @@ fig = px.scatter(data_melted, x='year', y='Value', color='PLAYER',
 
 # adding the layout for the players
 fig.update_layout(
-    updatemenus=[
-        dict(
-            buttons=[
-                dict(label="All Players", method="update", args=[{"visible": [True] * len(data_melted['PLAYER'].unique())}]),
-                # Add individual player filters here as needed
-            ],
-            direction="down",
-            showactive=True,
-            x=0.1,
-            y=1.15
-        )
-    ],
     xaxis=dict(title='Season Year'),
     yaxis=dict(title='Performance Metrics')
 )
 
-fig.write_html('plot.html')
+# write to html
+fig.write_html("plot.html")
 
 # showing the plot
 fig.show()
-
