@@ -98,3 +98,10 @@ nav {
     margin-top: 2rem;
     color: black;
 }
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
