@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2c7bee91b7b61e16967f97568cf0514f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 150px;
+    height: auto;
+    background-color: white;
+    border: 2px solid grey;
+    z-index: 9999;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+    <div style="text-align: center;"><b>NBA Championships</b></div>
+    <hr style="margin: 5px 0;">
+    <div style="margin: 5px 0;">
+        <span style="color: Red; font-size: 20px; vertical-align: middle;">●</span>
+        <span style="vertical-align: middle;"> >10 championships</span>
+    </div>
+    <div style="margin: 5px 0;">
+        <span style="color: Orange; font-size: 18px; vertical-align: middle;">●</span>
+        <span style="vertical-align: middle;"> 6-10 championships</span>
+    </div>
+    <div style="margin: 5px 0;">
+        <span style="color: Gold; font-size: 16px; vertical-align: middle;">●</span>
+        <span style="vertical-align: middle;"> 3-5 championships</span>
+    </div>
+    <div style="margin: 5px 0;">
+        <span style="color: Blue; font-size: 14px; vertical-align: middle;">●</span>
+        <span style="vertical-align: middle;"> 1-2 championships</span>
+    </div>
+    <div style="margin: 5px 0;">
+        <span style="color: Gray; font-size: 12px; vertical-align: middle;">●</span>
+        <span style="vertical-align: middle;"> 0 championships</span>
+    </div>
+</div>
+    
+            <div class="folium-map" id="map_2c7bee91b7b61e16967f97568cf0514f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2c7bee91b7b61e16967f97568cf0514f = L.map(
+                "map_2c7bee91b7b61e16967f97568cf0514f",
+                {
+                    center: [37.09, -95.71],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7461b306d7c237574289a1ea0d39f4d4 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+            var circle_marker_45e383dd40a533fef04a1facc23b129a = L.circleMarker(
+                [42.3188, -71.0852],
+                {"bubblingMouseEvents": true, "color": "Red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_c21e918881de2cb13edb8be1dcb0c710 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_3c7eea582967291bbd8545af530e6b66 = $(`<div id="html_3c7eea582967291bbd8545af530e6b66" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Boston<br>         <b>Team:</b> Celtics<br>         <b>Championships:</b> 18     </div>     </div>`)[0];
+                popup_c21e918881de2cb13edb8be1dcb0c710.setContent(html_3c7eea582967291bbd8545af530e6b66);
+            
+        
+
+        circle_marker_45e383dd40a533fef04a1facc23b129a.bindPopup(popup_c21e918881de2cb13edb8be1dcb0c710)
+        ;
+
+        
+    
+    
+            var circle_marker_4991583cb9be6ae9225f5d45034248c6 = L.circleMarker(
+                [34.1141, -118.4068],
+                {"bubblingMouseEvents": true, "color": "Red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_201e2591a0c2db911bb21bbdbb604f60 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_2d59556bc4807a14054b6fd0b0c1e588 = $(`<div id="html_2d59556bc4807a14054b6fd0b0c1e588" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Los Angeles<br>         <b>Team:</b> Lakers<br>         <b>Championships:</b> 17     </div>     </div>`)[0];
+                popup_201e2591a0c2db911bb21bbdbb604f60.setContent(html_2d59556bc4807a14054b6fd0b0c1e588);
+            
+        
+
+        circle_marker_4991583cb9be6ae9225f5d45034248c6.bindPopup(popup_201e2591a0c2db911bb21bbdbb604f60)
+        ;
+
+        
+    
+    
+            var circle_marker_6a10f5ade3710e294eb1770926b61833 = L.circleMarker(
+                [41.8375, -87.6866],
+                {"bubblingMouseEvents": true, "color": "Orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_20991b0e76533db6977fc1cbb95441ae = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_6d76dc5df57b167cc27724d3d6080d09 = $(`<div id="html_6d76dc5df57b167cc27724d3d6080d09" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Chicago<br>         <b>Team:</b> Bulls<br>         <b>Championships:</b> 6     </div>     </div>`)[0];
+                popup_20991b0e76533db6977fc1cbb95441ae.setContent(html_6d76dc5df57b167cc27724d3d6080d09);
+            
+        
+
+        circle_marker_6a10f5ade3710e294eb1770926b61833.bindPopup(popup_20991b0e76533db6977fc1cbb95441ae)
+        ;
+
+        
+    
+    
+            var circle_marker_0cfcafa2a315c6d876fc34474748cc55 = L.circleMarker(
+                [29.4632, -98.5238],
+                {"bubblingMouseEvents": true, "color": "Gold", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gold", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_c64fd1653dd39ea8da9c9b295244ea29 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_f8c4bc5d0e658a5f7bb6d77fcb350807 = $(`<div id="html_f8c4bc5d0e658a5f7bb6d77fcb350807" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> San Antonio<br>         <b>Team:</b> Spurs<br>         <b>Championships:</b> 5     </div>     </div>`)[0];
+                popup_c64fd1653dd39ea8da9c9b295244ea29.setContent(html_f8c4bc5d0e658a5f7bb6d77fcb350807);
+            
+        
+
+        circle_marker_0cfcafa2a315c6d876fc34474748cc55.bindPopup(popup_c64fd1653dd39ea8da9c9b295244ea29)
+        ;
+
+        
+    
+    
+            var circle_marker_6ad28df8b3d84a35110b2363e7889e3c = L.circleMarker(
+                [40.0077, -75.1339],
+                {"bubblingMouseEvents": true, "color": "Gold", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gold", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_ea746824f33e9802e11d6a4b416facfe = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_22049febbb569c2db254c100974af616 = $(`<div id="html_22049febbb569c2db254c100974af616" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Philadelphia<br>         <b>Team:</b> 76ers<br>         <b>Championships:</b> 3     </div>     </div>`)[0];
+                popup_ea746824f33e9802e11d6a4b416facfe.setContent(html_22049febbb569c2db254c100974af616);
+            
+        
+
+        circle_marker_6ad28df8b3d84a35110b2363e7889e3c.bindPopup(popup_ea746824f33e9802e11d6a4b416facfe)
+        ;
+
+        
+    
+    
+            var circle_marker_481622c9b01e38861fc4ad5ce6083e3b = L.circleMarker(
+                [42.3834, -83.1024],
+                {"bubblingMouseEvents": true, "color": "Gold", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gold", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_8d3fb43bc6e6213a4de1f2029001d0fd = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_3a624bd009771d5334aaa7a139523bc1 = $(`<div id="html_3a624bd009771d5334aaa7a139523bc1" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Detroit<br>         <b>Team:</b> Pistons<br>         <b>Championships:</b> 3     </div>     </div>`)[0];
+                popup_8d3fb43bc6e6213a4de1f2029001d0fd.setContent(html_3a624bd009771d5334aaa7a139523bc1);
+            
+        
+
+        circle_marker_481622c9b01e38861fc4ad5ce6083e3b.bindPopup(popup_8d3fb43bc6e6213a4de1f2029001d0fd)
+        ;
+
+        
+    
+    
+            var circle_marker_0b8eeb080970aceefb4f02b26caa0800 = L.circleMarker(
+                [25.784, -80.2101],
+                {"bubblingMouseEvents": true, "color": "Gold", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gold", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_ef3ea866497ff13d0565793c059f233e = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_d74cf836c488696fd9c4e17ff06d7ca3 = $(`<div id="html_d74cf836c488696fd9c4e17ff06d7ca3" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Miami<br>         <b>Team:</b> Heat<br>         <b>Championships:</b> 3     </div>     </div>`)[0];
+                popup_ef3ea866497ff13d0565793c059f233e.setContent(html_d74cf836c488696fd9c4e17ff06d7ca3);
+            
+        
+
+        circle_marker_0b8eeb080970aceefb4f02b26caa0800.bindPopup(popup_ef3ea866497ff13d0565793c059f233e)
+        ;
+
+        
+    
+    
+            var circle_marker_3fc0f2c4bd08f73e216957402e3c1f24 = L.circleMarker(
+                [29.786, -95.3885],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_cee6834e6a67ba5387d02edf8710f918 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_af5a0c35a3aac23d7c2850c22095eb41 = $(`<div id="html_af5a0c35a3aac23d7c2850c22095eb41" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Houston<br>         <b>Team:</b> Rockets<br>         <b>Championships:</b> 2     </div>     </div>`)[0];
+                popup_cee6834e6a67ba5387d02edf8710f918.setContent(html_af5a0c35a3aac23d7c2850c22095eb41);
+            
+        
+
+        circle_marker_3fc0f2c4bd08f73e216957402e3c1f24.bindPopup(popup_cee6834e6a67ba5387d02edf8710f918)
+        ;
+
+        
+    
+    
+            var circle_marker_29cba35986612104642301d675689aba = L.circleMarker(
+                [40.7834, -73.9662],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_72188e17eb5009a56d50fc30cdd0701d = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_619ecd9a78da30bc7946eb744fdcf03a = $(`<div id="html_619ecd9a78da30bc7946eb744fdcf03a" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> New York<br>         <b>Team:</b> Knicks<br>         <b>Championships:</b> 2     </div>     </div>`)[0];
+                popup_72188e17eb5009a56d50fc30cdd0701d.setContent(html_619ecd9a78da30bc7946eb744fdcf03a);
+            
+        
+
+        circle_marker_29cba35986612104642301d675689aba.bindPopup(popup_72188e17eb5009a56d50fc30cdd0701d)
+        ;
+
+        
+    
+    
+            var circle_marker_2d82c0c37ece4037bc8534541d543771 = L.circleMarker(
+                [43.0642, -87.9675],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_cc6b91c6dd0f33da6ce33926927120ae = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_707ce764562bba983ed5178b492312e0 = $(`<div id="html_707ce764562bba983ed5178b492312e0" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Milwaukee<br>         <b>Team:</b> Bucks<br>         <b>Championships:</b> 2     </div>     </div>`)[0];
+                popup_cc6b91c6dd0f33da6ce33926927120ae.setContent(html_707ce764562bba983ed5178b492312e0);
+            
+        
+
+        circle_marker_2d82c0c37ece4037bc8534541d543771.bindPopup(popup_cc6b91c6dd0f33da6ce33926927120ae)
+        ;
+
+        
+    
+    
+            var circle_marker_d911386697ee9f4d3d63ba9d12066129 = L.circleMarker(
+                [39.762, -104.8758],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_44c170add508ebf8b2b970d4d1ded9fd = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_e65d164ab4d606612e21d456b3be6a35 = $(`<div id="html_e65d164ab4d606612e21d456b3be6a35" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Denver<br>         <b>Team:</b> Nuggets<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_44c170add508ebf8b2b970d4d1ded9fd.setContent(html_e65d164ab4d606612e21d456b3be6a35);
+            
+        
+
+        circle_marker_d911386697ee9f4d3d63ba9d12066129.bindPopup(popup_44c170add508ebf8b2b970d4d1ded9fd)
+        ;
+
+        
+    
+    
+            var circle_marker_e64ec378c1e8a00868723a7de24d4bcc = L.circleMarker(
+                [43.65107, -79.347015],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_b7954f6df89410aa9d7d73a254139d9d = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_e5deae751ee08b0295b26d981224c2fd = $(`<div id="html_e5deae751ee08b0295b26d981224c2fd" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Toronto<br>         <b>Team:</b> Raptors<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_b7954f6df89410aa9d7d73a254139d9d.setContent(html_e5deae751ee08b0295b26d981224c2fd);
+            
+        
+
+        circle_marker_e64ec378c1e8a00868723a7de24d4bcc.bindPopup(popup_b7954f6df89410aa9d7d73a254139d9d)
+        ;
+
+        
+    
+    
+            var circle_marker_e38086f98b14003c9291ae355f2d3657 = L.circleMarker(
+                [41.4764, -81.6805],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_74da0fea6643eadec9ff1ae72bd9bc81 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_7437e4d0c6b07bc5113e9c10f8b936cf = $(`<div id="html_7437e4d0c6b07bc5113e9c10f8b936cf" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Cleveland<br>         <b>Team:</b> Cavaliers<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_74da0fea6643eadec9ff1ae72bd9bc81.setContent(html_7437e4d0c6b07bc5113e9c10f8b936cf);
+            
+        
+
+        circle_marker_e38086f98b14003c9291ae355f2d3657.bindPopup(popup_74da0fea6643eadec9ff1ae72bd9bc81)
+        ;
+
+        
+    
+    
+            var circle_marker_049bc5ef831385cd6d36696df6528481 = L.circleMarker(
+                [32.7935, -96.7667],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_08bc9ba349231d846a11b5b61c58bb4f = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_1722026cda304d007236cb8f47a7d1af = $(`<div id="html_1722026cda304d007236cb8f47a7d1af" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Dallas<br>         <b>Team:</b> Mavericks<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_08bc9ba349231d846a11b5b61c58bb4f.setContent(html_1722026cda304d007236cb8f47a7d1af);
+            
+        
+
+        circle_marker_049bc5ef831385cd6d36696df6528481.bindPopup(popup_08bc9ba349231d846a11b5b61c58bb4f)
+        ;
+
+        
+    
+    
+            var circle_marker_c5eeb63104993e96525ebbaac875ac4e = L.circleMarker(
+                [35.4676, -97.5136],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_3680b573bf96fc042640a28986d0de80 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_8e7ee24d1e78f8b49521cfdec387ca9d = $(`<div id="html_8e7ee24d1e78f8b49521cfdec387ca9d" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Oklahoma City<br>         <b>Team:</b> Thunder<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_3680b573bf96fc042640a28986d0de80.setContent(html_8e7ee24d1e78f8b49521cfdec387ca9d);
+            
+        
+
+        circle_marker_c5eeb63104993e96525ebbaac875ac4e.bindPopup(popup_3680b573bf96fc042640a28986d0de80)
+        ;
+
+        
+    
+    
+            var circle_marker_224353c7d2db1234de52ab2c8ad80caa = L.circleMarker(
+                [38.9047, -77.0163],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_b53536e4394cef6b5378dc576619a2d3 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_a71f4268e3c1f3482970855a1b9f9797 = $(`<div id="html_a71f4268e3c1f3482970855a1b9f9797" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Washington<br>         <b>Team:</b> Wizards<br>         <b>Championships:</b> 2     </div>     </div>`)[0];
+                popup_b53536e4394cef6b5378dc576619a2d3.setContent(html_a71f4268e3c1f3482970855a1b9f9797);
+            
+        
+
+        circle_marker_224353c7d2db1234de52ab2c8ad80caa.bindPopup(popup_b53536e4394cef6b5378dc576619a2d3)
+        ;
+
+        
+    
+    
+            var circle_marker_c0b6aa6516fd8096ead6961750c1dde3 = L.circleMarker(
+                [45.5371, -122.65],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_3f1ee5437cea13280bff41fe427229b5 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_05781f9eb99ec56fc93e20b56e5bafc9 = $(`<div id="html_05781f9eb99ec56fc93e20b56e5bafc9" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Portland<br>         <b>Team:</b> Trail Blazers<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_3f1ee5437cea13280bff41fe427229b5.setContent(html_05781f9eb99ec56fc93e20b56e5bafc9);
+            
+        
+
+        circle_marker_c0b6aa6516fd8096ead6961750c1dde3.bindPopup(popup_3f1ee5437cea13280bff41fe427229b5)
+        ;
+
+        
+    
+    
+            var circle_marker_b0764c277a970539fe54d32c23b7601d = L.circleMarker(
+                [33.7628, -84.422],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_1c7109c19c7ee4c44702583b8b60231e = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_0d6b83125398dd350192699268b6c5d6 = $(`<div id="html_0d6b83125398dd350192699268b6c5d6" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Atlanta<br>         <b>Team:</b> Hawks<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_1c7109c19c7ee4c44702583b8b60231e.setContent(html_0d6b83125398dd350192699268b6c5d6);
+            
+        
+
+        circle_marker_b0764c277a970539fe54d32c23b7601d.bindPopup(popup_1c7109c19c7ee4c44702583b8b60231e)
+        ;
+
+        
+    
+    
+            var circle_marker_b6990622abb9989ecbc7c328c3f05ba7 = L.circleMarker(
+                [38.5677, -121.4685],
+                {"bubblingMouseEvents": true, "color": "Blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_95bdb3c814d17f290502878e1bd14958 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_70ab6bec7dd646a3153b1f16cefe8087 = $(`<div id="html_70ab6bec7dd646a3153b1f16cefe8087" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Sacramento<br>         <b>Team:</b> Kings<br>         <b>Championships:</b> 1     </div>     </div>`)[0];
+                popup_95bdb3c814d17f290502878e1bd14958.setContent(html_70ab6bec7dd646a3153b1f16cefe8087);
+            
+        
+
+        circle_marker_b6990622abb9989ecbc7c328c3f05ba7.bindPopup(popup_95bdb3c814d17f290502878e1bd14958)
+        ;
+
+        
+    
+    
+            var circle_marker_473f58bdc212d7af0bfaeadbd4779103 = L.circleMarker(
+                [40.6501, -73.9496],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_f75a0acddc19c4bf5f48fd152d2cfd66 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_dac66d06bfb9b6b7ec61fab618abbd13 = $(`<div id="html_dac66d06bfb9b6b7ec61fab618abbd13" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Brooklyn<br>         <b>Team:</b> Nets<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_f75a0acddc19c4bf5f48fd152d2cfd66.setContent(html_dac66d06bfb9b6b7ec61fab618abbd13);
+            
+        
+
+        circle_marker_473f58bdc212d7af0bfaeadbd4779103.bindPopup(popup_f75a0acddc19c4bf5f48fd152d2cfd66)
+        ;
+
+        
+    
+    
+            var circle_marker_d3c537c7214098e4ea8f36692dd073ec = L.circleMarker(
+                [35.2083, -80.8303],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_5dd3534c423dcc51ef2c792a3ea4d508 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_db4d592d25f2abbdcfec068a559455b7 = $(`<div id="html_db4d592d25f2abbdcfec068a559455b7" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Charlotte<br>         <b>Team:</b> Hornets<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_5dd3534c423dcc51ef2c792a3ea4d508.setContent(html_db4d592d25f2abbdcfec068a559455b7);
+            
+        
+
+        circle_marker_d3c537c7214098e4ea8f36692dd073ec.bindPopup(popup_5dd3534c423dcc51ef2c792a3ea4d508)
+        ;
+
+        
+    
+    
+            var circle_marker_c8ecf9f5cb857c63299c691a8902e8de = L.circleMarker(
+                [39.7771, -86.1458],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_d4158e04501ad02cbaf533ea8b8ed2b8 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_cd7d0fde3e68357c2b578ffa7df1d2d1 = $(`<div id="html_cd7d0fde3e68357c2b578ffa7df1d2d1" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Indianapolis<br>         <b>Team:</b> Pacers<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_d4158e04501ad02cbaf533ea8b8ed2b8.setContent(html_cd7d0fde3e68357c2b578ffa7df1d2d1);
+            
+        
+
+        circle_marker_c8ecf9f5cb857c63299c691a8902e8de.bindPopup(popup_d4158e04501ad02cbaf533ea8b8ed2b8)
+        ;
+
+        
+    
+    
+            var circle_marker_8ddd66391ec06a2216f3e3f7a4fa1c20 = L.circleMarker(
+                [33.9566, -118.3444],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_d60fee7e0672cb3e754351c36e22f93d = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_af9d1e7a4d5f30f0efe92095c36b4246 = $(`<div id="html_af9d1e7a4d5f30f0efe92095c36b4246" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Inglewood<br>         <b>Team:</b> Clippers<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_d60fee7e0672cb3e754351c36e22f93d.setContent(html_af9d1e7a4d5f30f0efe92095c36b4246);
+            
+        
+
+        circle_marker_8ddd66391ec06a2216f3e3f7a4fa1c20.bindPopup(popup_d60fee7e0672cb3e754351c36e22f93d)
+        ;
+
+        
+    
+    
+            var circle_marker_43e97b5b5a1bab7a4eb010f2e2636af9 = L.circleMarker(
+                [35.1087, -89.9663],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_35c6540419db2306b02edb1d1bf46c9a = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_1ad2d64f5c9933cfb9f084f38a1f17ad = $(`<div id="html_1ad2d64f5c9933cfb9f084f38a1f17ad" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Memphis<br>         <b>Team:</b>  Grizzlies<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_35c6540419db2306b02edb1d1bf46c9a.setContent(html_1ad2d64f5c9933cfb9f084f38a1f17ad);
+            
+        
+
+        circle_marker_43e97b5b5a1bab7a4eb010f2e2636af9.bindPopup(popup_35c6540419db2306b02edb1d1bf46c9a)
+        ;
+
+        
+    
+    
+            var circle_marker_7517be812743bdd5d0e6e82d1f4614ad = L.circleMarker(
+                [28.4773, -81.337],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_29f19d742b17f88ef37616e3cbbd45c4 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_5cd361c28251b3fa799365887c59f61f = $(`<div id="html_5cd361c28251b3fa799365887c59f61f" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Orlando<br>         <b>Team:</b>  Magic<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_29f19d742b17f88ef37616e3cbbd45c4.setContent(html_5cd361c28251b3fa799365887c59f61f);
+            
+        
+
+        circle_marker_7517be812743bdd5d0e6e82d1f4614ad.bindPopup(popup_29f19d742b17f88ef37616e3cbbd45c4)
+        ;
+
+        
+    
+    
+            var circle_marker_f9fed1a99c5caf3fd0edca592de11c47 = L.circleMarker(
+                [33.5722, -112.0892],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_c74216cbd066dbe2a9cfa98dfd1b77eb = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_a7fbb858ab964fc423abad48c88878e8 = $(`<div id="html_a7fbb858ab964fc423abad48c88878e8" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Phoenix<br>         <b>Team:</b> Suns<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_c74216cbd066dbe2a9cfa98dfd1b77eb.setContent(html_a7fbb858ab964fc423abad48c88878e8);
+            
+        
+
+        circle_marker_f9fed1a99c5caf3fd0edca592de11c47.bindPopup(popup_c74216cbd066dbe2a9cfa98dfd1b77eb)
+        ;
+
+        
+    
+    
+            var circle_marker_a1e62b9a22c32d1f68272b920576e7d7 = L.circleMarker(
+                [40.7776, -111.9311],
+                {"bubblingMouseEvents": true, "color": "Gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_2c7bee91b7b61e16967f97568cf0514f);
+        
+    
+        var popup_46fbd60f3259dcd51729daccc7869481 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_8dc69929ba6791fbacfb39444477617d = $(`<div id="html_8dc69929ba6791fbacfb39444477617d" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; font-size: 12px;'>         <b>City:</b> Salt Lake City<br>         <b>Team:</b> Jazz<br>         <b>Championships:</b> 0     </div>     </div>`)[0];
+                popup_46fbd60f3259dcd51729daccc7869481.setContent(html_8dc69929ba6791fbacfb39444477617d);
+            
+        
+
+        circle_marker_a1e62b9a22c32d1f68272b920576e7d7.bindPopup(popup_46fbd60f3259dcd51729daccc7869481)
+        ;
+
+        
+    
+</script>
+</html>
