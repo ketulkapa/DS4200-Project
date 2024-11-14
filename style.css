@@ -114,7 +114,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 8px;
     background-color: rgba(0, 0, 0, 0.1);
     z-index: 9999;
     overflow: hidden;
@@ -123,13 +123,12 @@ nav {
 .loading-bar {
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #007BFF, #0056b3, #333);
-    background-size: 300%;
-    animation: loading 1.5s ease-in-out infinite;
+    background-color: #007BFF;
+    animation: pulsate 1.5s ease-in-out infinite;
 }
 
-@keyframes loading {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes pulsate {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
