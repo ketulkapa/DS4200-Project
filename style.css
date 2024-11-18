@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Style for paragraphs */
 p {
-    margin-bottom: 1.5rem;
+    margin: 1.5rem;
 }
 
 /* Container for centering content */
@@ -73,6 +73,10 @@ a:hover {
     padding: 2rem;
     margin: 2rem;
     max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Responsive design */
