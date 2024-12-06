@@ -45,13 +45,21 @@ Benefits of Including Color and Interaction:
 Top 30 Players in the Playoffs with the Most Minutes Played Static Map
 * The mark on this graph is the area and the channel is the length of the bars. 
 * A bar graph allows readers for an easier comparison and lets the readers know the top players with the most playoff minutes. Being in descending order makes it easier to follow.
-Assist to Turnover Ratio
-* The mark on the graph is the bar which represents each player's Assist to Turnover Ratio
-* Channels
-   * X-axis (Position): Represents the "Assist to Turnover Ratio," displayed as a numerical scale.
-   * Y-axis (Position): Represents the "Player" names, displayed categorically.
-   * Length (Size): Encodes the value of the Assist to Turnover Ratio for each player.
-   * Color: Uniform (green) for all bars, used only for visual consistency, not encoding specific data
+
+Assist to Turnover Treemap:
+The graph is a treemap, and it uses the following marks and channels to convey the data:
+
+1. Marks:
+   - Rectangles: Each rectangle represents a different NBA team. The size of the rectangles helps to visually distinguish the teams but does not directly encode any specific data variable.
+
+2. Channels:
+   - Color (Hue and Intensity): The color gradient represents the Assist to Turnover Ratio (ATR). Darker shades indicate a higher ATR, while lighter shades represent a lower ATR.
+   - Text: Each rectangle contains text showing the number of championships won by the team, making this information explicitly visible for comparison.
+   - Position: The placement of rectangles organizes the teams visually but does not encode specific data values like ranking or performance.
+   - Size: While the size of the rectangles might imply significance, it does not directly correspond to championship wins or ATR. It may be based on layout design choices.
+
+This combination of marks and channels effectively conveys two key metrics: efficiency (ATR) through color intensity and historical success (championships) through text labels.
+
 3-Points Shooting Evolution Trend
 * The mark on this graph is line , it represents trends over seasons and channel is color to differentiate two different analyses (3 point made or attempted analysis).
 * Choosing a line plot because it is perfect for displaying trends over time and it can better tell the story for time series analysis like this. In this case, it shows how the number of 3-pointers has evolved across seasons and tells how 3 point is now a major scoring method instead of other types.
